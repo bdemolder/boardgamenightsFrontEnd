@@ -1,7 +1,25 @@
-<h2>{{title}}</h2>
-
-<ul>
-  {{#each boardgamenights as |boardgamenight|}}
-    <li>{{boardgamenight}}</li>
-  {{/each}}
-</ul>
+<table class="ui large celled table">
+  <thead>
+    <tr><th colspan="7">
+      BoardGame nights
+    </th>
+  </tr></thead>
+  <tbody>
+    {{#each boardgamenights as |boardgamenight|}}
+      <tr class="{{if (eq boardgamenight.filling.current boardgamenight.filling.max) "error"}}">
+        <td class="collapsing">{{moment-format boardgamenight.date 'DD/MM/YYYY'}}</td>
+        <td class="collapsing">{{boardgamenight.boardGame}}</td>
+        <td>{{boardgamenight.organisator}}</td>
+        <td>{{boardgamenight.location}}</td>
+        <td class="collapsing">{{boardgamenight.weight}}</td>
+        <td class="collapsing">{{boardgamenight.filling.current}}/{{boardgamenight.filling.max}}</td>
+        <td class="collapsing">
+          <button class="ui blue button">
+            <i class="icon edit"></i>
+            Register
+          </button>
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
