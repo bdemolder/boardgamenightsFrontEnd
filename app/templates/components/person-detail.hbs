@@ -1,0 +1,20 @@
+{{#ui-modal name="profile" class="profile" elementId=(concat "profile-" person.id)}}
+  <i class="close icon"></i>
+  <div class="header">
+    {{person.fullName}}
+  </div>
+  <div class="image content">
+    <div class="description">
+      <div class="ui list">
+        <div class="item">
+          <div class="header">Introduction</div>
+          {{person.intro}}
+        </div>
+        <div class="item">
+          <div class="header">Age</div>
+          {{person.age}}
+        </div>
+      </div>
+    </div>
+  </div>
+{{/ui-modal}}

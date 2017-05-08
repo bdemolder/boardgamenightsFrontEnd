@@ -9,7 +9,10 @@
       <tr class="{{if (eq boardgamenight.filling.current boardgamenight.filling.max) "error"}}">
         <td class="collapsing">{{moment-format boardgamenight.date 'DD/MM/YYYY'}}</td>
         <td class="collapsing">{{boardgamenight.boardGame}}</td>
-        <td>{{boardgamenight.organisator}}</td>
+        <td>
+          <a class="header bgn-text-button" onclick={{action 'openModal' 'profile' boardgamenight.organisator.id}}>{{boardgamenight.organisator.fullName}}</a>
+          {{person-detail person=boardgamenight.organisator}}
+        </td>
         <td>{{boardgamenight.location}}</td>
         <td class="collapsing">{{boardgamenight.weight}}</td>
         <td class="collapsing">{{boardgamenight.filling.current}}/{{boardgamenight.filling.max}}</td>
