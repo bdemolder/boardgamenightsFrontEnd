@@ -1,9 +1,15 @@
 <table class="ui large celled table">
   <thead>
-    <tr><th colspan="7">
-      BoardGame nights
-    </th>
-  </tr></thead>
+    <tr>
+      <th class="center aligned"><i class="calendar icon"></i></th>
+      <th>Board Game</th>
+      <th>Organisator</th>
+      <th>Location</th>
+      <th>Complexity</th>
+      <th class="center aligned">Seats</th>
+      <th></th>
+    </tr>
+  </thead>
   <tbody>
     {{#each boardgamenights as |boardgamenight|}}
       <tr class="{{if (eq boardgamenight.filling.current boardgamenight.filling.max) "error"}}">
@@ -21,14 +27,16 @@
           {{location-detail location=boardgamenight.location}}
         </td>
         <td class="collapsing">
-          {{#each (range-helper 0 boardgamenight.boardGame.weight) as |item|}}
-            <i class="star icon"></i>
-          {{/each}}
-          {{#each (range-helper boardgamenight.boardGame.weight 5) as |item|}}
-            <i class="empty star icon"></i>
-          {{/each}}
+          <div data-tooltip={{complexity-helper boardgamenight.boardGame.weight}}>
+            {{#each (range-helper 0 boardgamenight.boardGame.weight) as |item|}}
+              <i class="star icon"></i>
+            {{/each}}
+            {{#each (range-helper boardgamenight.boardGame.weight 5) as |item|}}
+              <i class="empty star icon"></i>
+            {{/each}}
+          </div>
         </td>
-        <td class="collapsing">{{boardgamenight.filling.current}}/{{boardgamenight.filling.max}}</td>
+        <td class="center aligned collapsing">{{boardgamenight.filling.current}}/{{boardgamenight.filling.max}}</td>
         <td class="collapsing">
           <button class="ui blue button">
             <i class="icon edit"></i>
