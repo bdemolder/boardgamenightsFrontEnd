@@ -7,7 +7,9 @@
       <th>Location</th>
       <th>Complexity</th>
       <th class="center aligned">Seats</th>
+      {{#unless readonly}}
       <th></th>
+      {{/unless}}
     </tr>
   </thead>
   <tbody>
@@ -37,12 +39,14 @@
           </div>
         </td>
         <td class="center aligned collapsing">{{boardgamenight.filling.current}}/{{boardgamenight.filling.max}}</td>
+        {{#unless readonly}}
         <td class="collapsing">
           <button class="ui blue button">
             <i class="icon edit"></i>
             Register
           </button>
         </td>
+        {{/unless}}
       </tr>
     {{/each}}
   </tbody>
