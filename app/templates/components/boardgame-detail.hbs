@@ -1,0 +1,32 @@
+{{#ui-modal name="boardGame" class="boardGame" elementId=(concat "boardGame-" boardGame.id)}}
+  <i class="close icon"></i>
+  <div class="header bgn-boardgame-header">
+    {{boardGame.name}}
+  </div>
+  <div class="image content">
+    <div class="ui medium image">
+      <img src="{{boardGame.image}}">
+    </div>
+    <div class="description">
+      <div class="ui list">
+        <div class="item">
+          <div class="header">Weight</div>
+          {{boardGame.weight}}
+        </div>
+        <div class="item">
+          <div class="header">Language</div>
+          {{boardGame.language}}
+        </div>
+        <div class="item">
+          <div class="header">BoardGameGeekLink</div>
+          <a href="{{boardGame.boardGameGeekLink}}" target="_blank">{{boardGame.boardGameGeekLink}}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="actions">
+    <div class="description">
+      Image and some information is provided by BoardGameGeek (<a href="https://boardgamegeek.com" target="_blank">https://boardgamegeek.com</a>)
+    </div>
+  </div>
+{{/ui-modal}}

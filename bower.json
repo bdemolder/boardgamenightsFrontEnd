@@ -1,6 +1,7 @@
 {
   "name": "bgn-website",
   "dependencies": {
-    "semantic-ui": "^2.2.10"
+    "semantic-ui": "^2.2.10",
+    "gmaps-for-apps": "^0.5.15"
   }
 }

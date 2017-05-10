@@ -1,3 +1,20 @@
 .bgn-text-button {
   cursor: pointer;
 }
+
+.bgn-boardgame-header {
+  background-color: LightSteelBlue !important;
+}
+
+.bgn-profile-header {
+  background-color: LightGoldenRodYellow !important;
+}
+
+.bgn-location-header {
+  background-color: LightCoral !important;
+}
+
+.ember-cli-g-map {
+    height: 300px !important;
+    width: 100% !important;
+}

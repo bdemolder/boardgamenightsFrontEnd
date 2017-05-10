@@ -8,13 +8,20 @@
     {{#each boardgamenights as |boardgamenight|}}
       <tr class="{{if (eq boardgamenight.filling.current boardgamenight.filling.max) "error"}}">
         <td class="collapsing">{{moment-format boardgamenight.date 'DD/MM/YYYY'}}</td>
-        <td class="collapsing">{{boardgamenight.boardGame}}</td>
+        <td class="collapsing">
+          <a class="header bgn-text-button" onclick={{action 'openModal' 'boardGame' boardgamenight.boardGame.id}}>{{boardgamenight.boardGame.name}}</a>
+          {{boardgame-detail boardGame=boardgamenight.boardGame}}
+        </td>
         <td>
           <a class="header bgn-text-button" onclick={{action 'openModal' 'profile' boardgamenight.organisator.id}}>{{boardgamenight.organisator.fullName}}</a>
           {{person-detail person=boardgamenight.organisator}}
         </td>
-        <td>{{boardgamenight.location}}</td>
-        <td class="collapsing">{{boardgamenight.weight}}</td>
+        <td>
+          <a class="header bgn-text-button" onclick={{action 'openModal' 'location' boardgamenight.location.id}}>{{boardgamenight.location.city}}</a>
+          {{location-detail location=boardgamenight.location}}
+        </td>
+        <td></td>
+        <td class="collapsing">{{boardgamenight.boardGame.weight}}</td>
         <td class="collapsing">{{boardgamenight.filling.current}}/{{boardgamenight.filling.max}}</td>
         <td class="collapsing">
           <button class="ui blue button">
