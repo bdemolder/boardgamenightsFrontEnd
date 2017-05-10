@@ -20,8 +20,14 @@
           <a class="header bgn-text-button" onclick={{action 'openModal' 'location' boardgamenight.location.id}}>{{boardgamenight.location.city}}</a>
           {{location-detail location=boardgamenight.location}}
         </td>
-        <td></td>
-        <td class="collapsing">{{boardgamenight.boardGame.weight}}</td>
+        <td class="collapsing">
+          {{#each (range-helper 0 boardgamenight.boardGame.weight) as |item|}}
+            <i class="star icon"></i>
+          {{/each}}
+          {{#each (range-helper boardgamenight.boardGame.weight 5) as |item|}}
+            <i class="empty star icon"></i>
+          {{/each}}
+        </td>
         <td class="collapsing">{{boardgamenight.filling.current}}/{{boardgamenight.filling.max}}</td>
         <td class="collapsing">
           <button class="ui blue button">

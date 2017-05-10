@@ -9,8 +9,8 @@ export default Ember.Component.extend({
       var elementId = name + '-' + id;
 
       $('.ui.' + name + '.modal#' + elementId)
-      .modal({ dimmerSettings: { opacity: 0.7 }})
       .modal({
+        dimmerSettings: { opacity: 0.5 },
         onVisible: function () {
           if (name === "location") {
             var mapObject = gMapObject.maps.select("gmap-" + id);
