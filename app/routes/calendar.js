@@ -5,6 +5,7 @@ export default Ember.Route.extend({
     return [
       {
         id: 'c3049f9c-78c3-4aca-845c-5999bf2ffffc',
+        isOwner: false,
         date: new Date(2017, 5, 20, 19, 0, 0),
         boardGame: {
           id: 'b70ef012-3511-49b0-a5a5-800fafeac349',
@@ -31,6 +32,7 @@ export default Ember.Route.extend({
       },
       {
         id: 'a3e6fdb5-4c1a-407d-bbd8-a1fb35385375',
+        isOwner: true,
         date: new Date(2017, 5, 22, 19, 30, 0),
         boardGame: {
           id: '5b082778-e44e-487a-83f3-44a1fb6b271a',
@@ -57,6 +59,7 @@ export default Ember.Route.extend({
       },
       {
         id: '2796b1c8-b925-460c-8d65-764bd1c2e727',
+        isOwner: false,
         date: new Date(2017, 5, 23, 19, 0, 0),
         boardGame: {
           id: '2da38fa8-04c0-42cd-b330-c7f00c062a36',

@@ -1,7 +1,13 @@
 <table class="ui large celled table">
   <thead>
     <tr>
-      <th class="center aligned"><i class="calendar icon"></i></th>
+      <th class="center aligned">
+        {{#if readonly}}
+        <i class="calendar icon"></i>
+        {{else}}
+          <button class="ui green button"><i class="add to calendar icon"></i>Add</button>
+        {{/if}}
+      </th>
       <th>Board Game</th>
       <th>Complexity</th>
       <th class="center aligned">Seats</th>
@@ -15,7 +21,7 @@
   <tbody>
     {{#each boardgamenights as |boardgamenight|}}
       <tr class="{{if (eq boardgamenight.filling.current boardgamenight.filling.max) "negative"}}">
-        <td class="collapsing">{{moment-format boardgamenight.date 'DD/MM/YYYY'}}</td>
+        <td class="collapsing">{{moment-format boardgamenight.date 'DD/MM/YYYY - HH:mm'}}</td>
         <td class="collapsing">
           <a class="header bgn-text-button" onclick={{action 'openModal' 'boardGame' boardgamenight.boardGame.id}}>{{boardgamenight.boardGame.name}}</a>
           {{boardgame-detail boardGame=boardgamenight.boardGame}}
@@ -36,10 +42,13 @@
         </td>
         {{#unless readonly}}
         <td class="collapsing">
-          <button class="ui blue button">
-            <i class="icon edit"></i>
-            Register
-          </button>
+          <div class="ui icon buttons">
+            <button class="ui green icon button {{if (eq boardgamenight.filling.current boardgamenight.filling.max) "disabled"}}" data-tooltip="Register"><i class="plus icon"></i></button>
+            {{#if boardgamenight.isOwner}}
+            <button class="ui grey icon button" data-tooltip="Edit"><i class="edit icon"></i></button>
+            <button class="ui grey icon button" data-tooltip="Remove"><i class="remove icon"></i></button>
+            {{/if}}
+          </div>
         </td>
         {{/unless}}
       </tr>
