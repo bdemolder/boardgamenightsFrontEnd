@@ -4,14 +4,14 @@
     <i class="cube icon" /> {{boardGame.name}}
   </div>
   <div class="image content">
-    <div class="ui medium image">
+    <div class="ui medium image aside">
       <img src="{{boardGame.image}}">
     </div>
     <div class="description">
       <div class="ui list">
         <div class="item">
           <div class="header">Complexity</div>
-          {{boardGame.weight}}
+          {{complexity-star-rating value=boardGame.weight maxValue=5}}
         </div>
         <div class="item">
           <div class="header">Language</div>

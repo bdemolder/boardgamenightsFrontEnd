@@ -40,3 +40,9 @@
   margin-right: 0px !important;
   margin-left: 0px !important;
 }
+
+@media (max-width: 700px) {
+    .aside {
+        display: none !important;
+    }
+}
