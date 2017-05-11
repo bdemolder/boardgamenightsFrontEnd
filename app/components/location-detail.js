@@ -27,7 +27,7 @@ export default Ember.Component.extend({
             alert('Geocode was not successful for the following reason: ' + status);
           }
         });
-      };
+      }
 
       if (mapObject && mapObject.map) {
         var self = this;

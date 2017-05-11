@@ -18,3 +18,8 @@
     height: 300px !important;
     width: 100% !important;
 }
+
+.bgn-user-outlet {
+  height: 100%;
+  padding: 10px;
+}

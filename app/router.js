@@ -7,7 +7,7 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('boardgamenights');
+  this.route('calendar');
 });
 
 export default Router;
