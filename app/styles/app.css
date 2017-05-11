@@ -35,3 +35,8 @@
 .bgn-player-header {
   background-color: LavenderBlush !important;
 }
+
+.bgn-modal-footer {
+  margin-right: 0px !important;
+  margin-left: 0px !important;
+}
