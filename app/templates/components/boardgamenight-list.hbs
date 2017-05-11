@@ -1,4 +1,4 @@
-<table class="ui large celled table">
+<table class="ui large celled table tablet stackable">
   <thead>
     <tr>
       <th class="center aligned">
@@ -10,7 +10,7 @@
       </th>
       <th>Board Game</th>
       <th>Complexity</th>
-      <th class="center aligned">Seats</th>
+      <th>Seats</th>
       <th>Location</th>
       <th>Organisator</th>
       {{#unless readonly}}
@@ -31,7 +31,7 @@
             {{complexity-star-rating value=boardgamenight.boardGame.weight maxValue=5}}
           </div>
         </td>
-        <td class="center aligned collapsing">{{boardgamenight.filling.current}} / {{boardgamenight.filling.max}}</td>
+        <td class="collapsing">{{boardgamenight.filling.current}} / {{boardgamenight.filling.max}}</td>
         <td>
           <a class="header bgn-text-button" onclick={{action 'openModal' 'location' boardgamenight.location.id}}>{{boardgamenight.location.city}}</a>
           {{location-detail location=boardgamenight.location}}
@@ -43,7 +43,7 @@
         {{#unless readonly}}
         <td class="collapsing">
           <div class="ui icon buttons">
-            <button class="ui green icon button {{if (eq boardgamenight.filling.current boardgamenight.filling.max) "disabled"}}" data-tooltip="Register"><i class="plus icon"></i></button>
+            <button class="ui green button {{if (eq boardgamenight.filling.current boardgamenight.filling.max) "disabled"}}">Sign up</button>
             {{#if boardgamenight.isOwner}}
             <button class="ui grey icon button" data-tooltip="Edit"><i class="edit icon"></i></button>
             <button class="ui grey icon button" data-tooltip="Remove"><i class="remove icon"></i></button>
