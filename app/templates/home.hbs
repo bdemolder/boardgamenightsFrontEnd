@@ -1,0 +1,15 @@
+<div class="ui divided items">
+  {{#each model as |news|}}
+  <div class="item">
+    <div class="content">
+      <div class="header">{{news.title}}</div>
+      <div class="meta">
+        <span class="date">{{moment-format news.date 'DD/MM/YYYY - HH:mm:ss'}}</span>
+      </div>
+      <div class="description">
+        {{news.text}}
+      </div>
+    </div>
+  </div>
+  {{/each}}
+</div>

@@ -1,0 +1,6 @@
+{{#each (range-helper 0 value) as |item|}}
+  <i class="star icon"></i>
+{{/each}}
+{{#each (range-helper value maxValue) as |item|}}
+  <i class="empty star icon"></i>
+{{/each}}

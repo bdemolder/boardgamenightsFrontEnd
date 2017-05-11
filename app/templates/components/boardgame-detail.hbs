@@ -1,7 +1,7 @@
 {{#ui-modal name="boardGame" class="boardGame" elementId=(concat "boardGame-" boardGame.id)}}
   <i class="close icon"></i>
   <div class="header bgn-boardgame-header">
-    {{boardGame.name}}
+    <i class="cube icon" /> {{boardGame.name}}
   </div>
   <div class="image content">
     <div class="ui medium image">
@@ -10,7 +10,7 @@
     <div class="description">
       <div class="ui list">
         <div class="item">
-          <div class="header">Weight</div>
+          <div class="header">Complexity</div>
           {{boardGame.weight}}
         </div>
         <div class="item">

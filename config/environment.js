@@ -31,7 +31,7 @@ module.exports = function(environment) {
     'style-src': "'self' 'unsafe-inline' fonts.googleapis.com maps.gstatic.com"
   };
   ENV.googleMap = {
-    apiKey: 'AIzaSyBzx-W7fI8repNJdr8URtDHW2OIWVUtmoE',
+    //apiKey: 'AIzaSyBzx-W7fI8repNJdr8URtDHW2OIWVUtmoE',
     libraries: ['drawing', 'visualization']
   }
 

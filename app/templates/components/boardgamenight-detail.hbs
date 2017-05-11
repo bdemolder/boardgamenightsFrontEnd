@@ -1,0 +1,40 @@
+{{#ui-modal name="boardGameNight" class="boardGameNight" elementId=(concat "boardGameNight-" boardGameNight.id)}}
+  <i class="close icon"></i>
+  <div class="header {{headerClass}}">
+    <i class="cube icon" /> {{boardGameNight.boardGame.name}}
+  </div>
+  <div class="image content">
+    <div class="ui medium image">
+      <img src="{{boardGameNight.boardGame.image}}">
+    </div>
+    <div class="description">
+      <div class="ui relaxed list">
+        <div class="item">
+          <div class="header">Organisator</div>
+          {{boardGameNight.organisator.fullName}}
+        </div>
+        <div class="item">
+          <div class="header">Location</div>
+          {{boardGameNight.location.street}}, {{boardGameNight.location.city}}
+        </div>
+        <div class="item">
+          <div class="header">Complexity</div>
+          {{complexity-star-rating value=boardGameNight.boardGame.weight maxValue=5}}
+        </div>
+        <div class="item">
+          <div class="header">Language</div>
+          {{boardGameNight.boardGame.language}}
+        </div>
+        <div class="item">
+          <div class="header">BoardGameGeekLink</div>
+          <a href="{{boardGameNight.boardGame.boardGameGeekLink}}" target="_blank">{{boardGameNight.boardGame.boardGameGeekLink}}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="actions">
+    <div class="description">
+      Image and some information is provided by BoardGameGeek (<a href="https://boardgamegeek.com" target="_blank">https://boardgamegeek.com</a>)
+    </div>
+  </div>
+{{/ui-modal}}

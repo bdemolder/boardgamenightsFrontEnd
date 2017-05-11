@@ -1,7 +1,7 @@
 {{#ui-modal name="location" class="location" elementId=(concat "location-" location.id)}}
   <i class="close icon"></i>
   <div class="header bgn-location-header">
-    {{location.city}} - {{location.street}}
+    <i class="marker icon" /> {{location.street}}, {{location.city}}
   </div>
   <div class="content">
     {{g-maps name=(concat "gmap-" location.id) loaded="gmapLoaded" zoom=10 disableDefaultUI=true draggable=false clickableIcons=false showMapTypeControl=false showZoomControl=false}}

@@ -1,0 +1,36 @@
+<div class="ui equal width padded grid">
+  <div class="row">
+    <div class="column">
+      <h3 class="ui top attached header bgn-organizer-header">Nights where I am organizer</h3>
+      <div class="ui attached segment">
+        <div class="ui relaxed divided list">
+          {{#each model.organizer as |boardgamenight|}}
+          <div class="item">
+            <div class="content">
+              <a class="header" onclick={{action 'openModal' 'boardGameNight' boardgamenight.id}}>{{boardgamenight.boardGame.name}}</a>
+              {{boardgamenight-detail boardGameNight=boardgamenight headerClass="bgn-organizer-header"}}
+              <div class="description">{{moment-format boardgamenight.date 'DD/MM/YYYY - HH:mm:ss'}}</div>
+            </div>
+          </div>
+          {{/each}}
+        </div>
+      </div>
+    </div>
+    <div class="column">
+      <h3 class="ui top attached header bgn-player-header">Nights where I am a player</h3>
+      <div class="ui attached segment">
+        <div class="ui relaxed divided list">
+          {{#each model.player as |boardgamenight|}}
+          <div class="item">
+            <div class="content">
+              <a class="header" onclick={{action 'openModal' 'boardGameNight' boardgamenight.id}}>{{boardgamenight.boardGame.name}}</a>
+              {{boardgamenight-detail boardGameNight=boardgamenight headerClass="bgn-player-header"}}
+              <div class="description">{{moment-format boardgamenight.date 'DD/MM/YYYY - HH:mm:ss'}}</div>
+            </div>
+          </div>
+          {{/each}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

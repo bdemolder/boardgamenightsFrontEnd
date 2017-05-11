@@ -8,6 +8,8 @@ const Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('calendar');
+  this.route('home', { path: '/' });
+  this.route('user-nights');
 });
 
 export default Router;

@@ -1,0 +1,25 @@
+import { moduleForComponent, test } from 'ember-qunit';
+import hbs from 'htmlbars-inline-precompile';
+
+moduleForComponent('complexity-star-rating', 'Integration | Component | complexity star rating', {
+  integration: true
+});
+
+test('it renders', function(assert) {
+
+  // Set any properties with this.set('myProperty', 'value');
+  // Handle any actions with this.on('myAction', function(val) { ... });
+
+  this.render(hbs`{{complexity-star-rating}}`);
+
+  assert.equal(this.$().text().trim(), '');
+
+  // Template block usage:
+  this.render(hbs`
+    {{#complexity-star-rating}}
+      template block text
+    {{/complexity-star-rating}}
+  `);
+
+  assert.equal(this.$().text().trim(), 'template block text');
+});

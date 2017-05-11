@@ -3,10 +3,10 @@
     <tr>
       <th class="center aligned"><i class="calendar icon"></i></th>
       <th>Board Game</th>
-      <th>Organisator</th>
-      <th>Location</th>
       <th>Complexity</th>
       <th class="center aligned">Seats</th>
+      <th>Location</th>
+      <th>Organisator</th>
       {{#unless readonly}}
       <th></th>
       {{/unless}}
@@ -14,31 +14,26 @@
   </thead>
   <tbody>
     {{#each boardgamenights as |boardgamenight|}}
-      <tr class="{{if (eq boardgamenight.filling.current boardgamenight.filling.max) "error"}}">
+      <tr class="{{if (eq boardgamenight.filling.current boardgamenight.filling.max) "negative"}}">
         <td class="collapsing">{{moment-format boardgamenight.date 'DD/MM/YYYY'}}</td>
         <td class="collapsing">
           <a class="header bgn-text-button" onclick={{action 'openModal' 'boardGame' boardgamenight.boardGame.id}}>{{boardgamenight.boardGame.name}}</a>
           {{boardgame-detail boardGame=boardgamenight.boardGame}}
         </td>
-        <td>
-          <a class="header bgn-text-button" onclick={{action 'openModal' 'profile' boardgamenight.organisator.id}}>{{boardgamenight.organisator.fullName}}</a>
-          {{person-detail person=boardgamenight.organisator}}
+        <td class="collapsing">
+          <div data-tooltip={{complexity-helper boardgamenight.boardGame.weight}}>
+            {{complexity-star-rating value=boardgamenight.boardGame.weight maxValue=5}}
+          </div>
         </td>
+        <td class="center aligned collapsing">{{boardgamenight.filling.current}} / {{boardgamenight.filling.max}}</td>
         <td>
           <a class="header bgn-text-button" onclick={{action 'openModal' 'location' boardgamenight.location.id}}>{{boardgamenight.location.city}}</a>
           {{location-detail location=boardgamenight.location}}
         </td>
-        <td class="collapsing">
-          <div data-tooltip={{complexity-helper boardgamenight.boardGame.weight}}>
-            {{#each (range-helper 0 boardgamenight.boardGame.weight) as |item|}}
-              <i class="star icon"></i>
-            {{/each}}
-            {{#each (range-helper boardgamenight.boardGame.weight 5) as |item|}}
-              <i class="empty star icon"></i>
-            {{/each}}
-          </div>
+        <td>
+          <a class="header bgn-text-button" onclick={{action 'openModal' 'profile' boardgamenight.organisator.id}}>{{boardgamenight.organisator.fullName}}</a>
+          {{person-detail person=boardgamenight.organisator}}
         </td>
-        <td class="center aligned collapsing">{{boardgamenight.filling.current}}/{{boardgamenight.filling.max}}</td>
         {{#unless readonly}}
         <td class="collapsing">
           <button class="ui blue button">
