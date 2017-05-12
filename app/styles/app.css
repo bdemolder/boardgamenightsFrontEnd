@@ -47,6 +47,22 @@
     }
 }
 
+.bgn-news-element {
+  overflow: auto;
+}
+
 .bgn-news-element > h2 {
   margin-top: 0px !important;
+}
+
+.bgn-boardgamenight-top {
+  border-top: 2px solid #2185D0 !important;
+}
+
+.bgn-news-top {
+  border-top: 2px solid #FBBD08 !important;
+}
+
+.bgn-website-top {
+  border-top: 2px solid #DB2828 !important;
 }

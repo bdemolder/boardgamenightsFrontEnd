@@ -1,5 +1,6 @@
 <div class="ui container">
   {{#each model as |news index|}}
+  <div class="ui segments">
   <div class="ui {{news-color news.type}} segment bgn-news-element">
     <div class="ui medium {{if (mod index 2) "right" "left"}} floated image">
       <img src="/assets/images/boardgames.jpg">
@@ -11,14 +12,15 @@
       </div>
     </h2>
     <p>
-      {{truncate-text news.text limit=580}}
+      {{{truncate-text news.text limit=500}}}
     </p>
-    <div>
+
+  </div>
+    <div class="ui segment">
       {{#each news.tags as |tag|}}
       <div class="ui label">{{tag}}</div>
       {{/each}}
     </div>
-
   </div>
   {{/each}}
 </div>
