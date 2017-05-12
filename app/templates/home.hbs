@@ -1,15 +1,24 @@
-<div class="ui divided items">
-  {{#each model as |news|}}
-  <div class="item">
-    <div class="content">
-      <div class="header">{{news.title}}</div>
-      <div class="meta">
-        <span class="date">{{moment-format news.date 'DD/MM/YYYY - HH:mm:ss'}}</span>
-      </div>
-      <div class="description">
-        {{news.text}}
-      </div>
+<div class="ui container">
+  {{#each model as |news index|}}
+  <div class="ui {{news-color news.type}} segment bgn-news-element">
+    <div class="ui medium {{if (mod index 2) "right" "left"}} floated image">
+      <img src="/assets/images/boardgames.jpg">
     </div>
+    <h2 class="ui header">
+      <div class="content">
+        {{news.title}}
+        <div class="sub header">{{moment-format news.date 'DD/MM/YYYY - HH:mm:ss'}}</div>
+      </div>
+    </h2>
+    <p>
+      {{truncate-text news.text limit=580}}
+    </p>
+    <div>
+      {{#each news.tags as |tag|}}
+      <div class="ui label">{{tag}}</div>
+      {{/each}}
+    </div>
+
   </div>
   {{/each}}
 </div>

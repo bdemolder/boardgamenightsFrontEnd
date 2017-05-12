@@ -46,3 +46,7 @@
         display: none !important;
     }
 }
+
+.bgn-news-element > h2 {
+  margin-top: 0px !important;
+}
