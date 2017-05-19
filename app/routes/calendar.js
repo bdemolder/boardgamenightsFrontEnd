@@ -11,7 +11,7 @@ export default Ember.Route.extend({
           id: 'b70ef012-3511-49b0-a5a5-800fafeac349',
           name: "Blood Rage",
           language: "Dutch",
-          weight: 3,
+          weight: 5,
           description: "Blooood RAAAAGE!"
         },
         organisator: {

@@ -4,3 +4,6 @@
 {{#each (range-helper value maxValue) as |item|}}
   <i class="empty star icon"></i>
 {{/each}}
+{{#if showLabel}}
+  {{complexity-helper value}}
+{{/if}}

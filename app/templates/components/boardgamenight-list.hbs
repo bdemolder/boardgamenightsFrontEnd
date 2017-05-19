@@ -1,11 +1,16 @@
 <table class="ui large celled table tablet stackable">
   <thead>
     <tr>
-      <th class="center aligned">
+      <th class="center aligned collapsing">
         {{#if readonly}}
         <i class="calendar icon"></i>
         {{else}}
-          <button class="ui green button"><i class="add to calendar icon"></i>Add</button>
+        <div class="ui buttons">
+          <button class="ui green button" onclick={{action 'openModal' 'addOneNight' false}}>Add 1</button>
+          {{add-one-night}}
+          <div class="or"></div>
+          <button class="ui teal button">Multiple</button>
+        </div>
         {{/if}}
       </th>
       <th>Board Game</th>
@@ -21,7 +26,7 @@
   <tbody>
     {{#each boardgamenights as |boardgamenight|}}
       <tr class="{{if (eq boardgamenight.filling.current boardgamenight.filling.max) "negative"}}">
-        <td class="collapsing">{{moment-format boardgamenight.date 'DD/MM/YYYY - HH:mm'}}</td>
+        <td class="center aligned">{{moment-format boardgamenight.date 'DD/MM/YYYY - HH:mm'}}</td>
         <td class="collapsing">
           <a class="header bgn-text-button" onclick={{action 'openModal' 'boardGame' boardgamenight.boardGame.id}}>{{boardgamenight.boardGame.name}}</a>
           {{boardgame-detail boardGame=boardgamenight.boardGame}}

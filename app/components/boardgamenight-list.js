@@ -6,11 +6,16 @@ export default Ember.Component.extend({
   actions: {
     openModal: function(name, id) {
       var gMapObject = this.get('gMap');
-      var elementId = name + '-' + id;
 
-      $('.ui.' + name + '.modal#' + elementId)
+      var elementId = '';
+      if (id) {
+        elementId = '#' + name + '-' + id;
+      }
+
+      $('.ui.' + name + '.modal' + elementId)
       .modal({
         dimmerSettings: { opacity: 0.5 },
+        autofocus: false,
         onVisible: function () {
           if (name === "location") {
             var mapObject = gMapObject.maps.select("gmap-" + id);

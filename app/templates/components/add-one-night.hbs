@@ -1,0 +1,42 @@
+{{#ui-modal name="addOneNight" class="addOneNight"}}
+  <i class="close icon"></i>
+  <div class="header bgn-boardgame-header">
+    <i class="calendar icon" /> Add a new board game night
+  </div>
+  <div class="content">
+    <div class="description">
+      <form class="ui form">
+        <div class="field">
+          <label>Date and time</label>
+          <div class="two fields">
+            <div class="field">
+              {{pikaday-input format="DD/MM/YYYY"}}
+            </div>
+            <div class="field">
+            {{masked-input mask='11:11' required=true pattern='[0-9]{2}:[0-9]{2}' title='Time value with format HH:MM'}}
+            </div>
+          </div>
+        </div>
+        <div class="field">
+          <label>Name</label>
+          <input name="boardgame[name]" placeholder="Name" type="text">
+        </div>
+        <div class="field">
+          <label>Complexity</label>
+          {{#ui-dropdown class="selection" selected="1" onChange=(action (mut complexity))}}
+          <div class="default text">Complexity</div>
+          <i class="dropdown icon"></i>
+          <div class="menu">
+            {{#each (range-helper 1 6) as |item|}}
+            <div class="item" data-value={{item}}>
+              {{complexity-star-rating value=item maxValue=5 showLabel=true}}
+            </div>
+            {{/each}}
+          </div>
+          {{/ui-dropdown}}
+        </div>
+
+      </form>
+    </div>
+  </div>
+{{/ui-modal}}
