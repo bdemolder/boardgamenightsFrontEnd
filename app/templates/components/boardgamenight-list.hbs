@@ -7,7 +7,6 @@
         {{else}}
         <div class="ui buttons">
           <button class="ui green button" onclick={{action 'openModal' 'addOneNight' false}}>Add 1</button>
-          {{add-one-night}}
           <div class="or"></div>
           <button class="ui teal button">Multiple</button>
         </div>
@@ -29,7 +28,6 @@
         <td class="center aligned">{{moment-format boardgamenight.date 'DD/MM/YYYY - HH:mm'}}</td>
         <td class="collapsing">
           <a class="header bgn-text-button" onclick={{action 'openModal' 'boardGame' boardgamenight.boardGame.id}}>{{boardgamenight.boardGame.name}}</a>
-          {{boardgame-detail boardGame=boardgamenight.boardGame}}
         </td>
         <td class="collapsing">
           <div data-tooltip={{complexity-helper boardgamenight.boardGame.weight}}>
@@ -38,12 +36,10 @@
         </td>
         <td class="collapsing">{{boardgamenight.filling.current}} / {{boardgamenight.filling.max}}</td>
         <td>
-          {{!--<a class="header bgn-text-button" onclick={{action 'openModal' 'location' boardgamenight.location.id}}>{{boardgamenight.location.city}}</a>
-          {{location-detail location=boardgamenight.location}}--}}
+          <a class="header bgn-text-button" onclick={{action 'openModal' 'location' boardgamenight.location.id}}>{{boardgamenight.location.city}}</a>
         </td>
         <td>
           <a class="header bgn-text-button" onclick={{action 'openModal' 'profile' boardgamenight.organisator.id}}>{{boardgamenight.organisator.fullName}}</a>
-          {{person-detail person=boardgamenight.organisator}}
         </td>
         {{#unless readonly}}
         <td class="collapsing">
@@ -60,3 +56,13 @@
     {{/each}}
   </tbody>
 </table>
+
+{{!-- Initialization of the modals, outside table because of issues --}}
+<div style="height: 0px;">
+{{add-one-night}}  
+{{#each boardgamenights as |boardgamenight|}}
+  {{boardgame-detail boardGame=boardgamenight.boardGame}}
+  {{!--{{location-detail location=boardgamenight.location}}--}}
+  {{person-detail person=boardgamenight.organisator}}
+{{/each}}
+</div>

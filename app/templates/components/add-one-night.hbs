@@ -1,4 +1,4 @@
-{{#ui-modal name="addOneNight" class="addOneNight"}}
+{{#ui-modal name="addOneNight" class="addOneNight" onApprove=(action 'approveModal') onDeny=(action 'denyModal') autofocus=false }}
   <i class="close icon"></i>
   <div class="header bgn-boardgame-header">
     <i class="calendar icon" /> Add a new board game night
@@ -10,16 +10,27 @@
           <label>Date and time</label>
           <div class="two fields">
             <div class="field">
-              {{pikaday-input format="DD/MM/YYYY"}}
+              {{pikaday-input format="DD/MM/YYYY" placeholder='Date'}}
             </div>
             <div class="field">
-            {{masked-input mask='11:11' required=true pattern='[0-9]{2}:[0-9]{2}' title='Time value with format HH:MM'}}
+              {{masked-input mask='11:11' required=true pattern='[0-9]{2}:[0-9]{2}' title='Time value with format HH:MM' placeholder='Time'}}
             </div>
           </div>
         </div>
         <div class="field">
           <label>Name</label>
           <input name="boardgame[name]" placeholder="Name" type="text">
+        </div>
+        <div class="field">
+          <label>Seating</label>
+          <div class="two fields">
+            <div class="field">
+          <input name="boardgame[availableSeats]" placeholder="Name" type="number" min="0" placeholder="Available seats">
+            </div>
+            <div class="field">
+              <input name="boardgame[maxSeats]" placeholder="Name" type="number" min="0" placeholder="Maximum seats">
+            </div>
+          </div>
         </div>
         <div class="field">
           <label>Complexity</label>
@@ -35,8 +46,12 @@
           </div>
           {{/ui-dropdown}}
         </div>
-
       </form>
+    </div>
+  </div>
+  <div class="actions">
+    <div class="ui red button deny">Cancel</div>
+    <div class="ui green right labeled icon button approve">Save<i class="checkmark icon"></i>
     </div>
   </div>
 {{/ui-modal}}

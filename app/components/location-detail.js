@@ -4,6 +4,16 @@ export default Ember.Component.extend({
   gMap: Ember.inject.service(),
   marker: '',
   actions: {
+    onVisible: function (id) {
+      var gMapObject = this.get('gMap');
+      var mapObject = gMapObject.maps.select("gmap-" + id);
+      if (mapObject && mapObject.map) {
+        var map = mapObject.map;
+        var center = map.getCenter();
+        google.maps.event.trigger(map, 'resize');
+        map.setCenter(center); 
+      }
+    },
     gmapLoaded: function() {
       var location = this.attrs["location"].value;
       var geocoder = new google.maps.Geocoder();

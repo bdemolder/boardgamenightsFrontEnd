@@ -2,6 +2,15 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   model: {
-    currentTimeStamp: Math.floor(Date.now() / 1000)
+  },
+  actions: {
+    approveModal: function () {
+      console.log('Approved! - Compo');
+      return true;
+    },
+    denyModal: function (element, component) {
+      console.log('Denied! - Compo');
+      return true;
+    }
   }
 });

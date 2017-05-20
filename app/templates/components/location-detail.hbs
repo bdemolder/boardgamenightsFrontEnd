@@ -1,4 +1,4 @@
-{{#ui-modal name="location" class="location" elementId=(concat "location-" location.id)}}
+{{#ui-modal name="location" class="location" elementId=(concat "location-" location.id) onVisible=(action 'onVisible' location.id)}}
   <i class="close icon"></i>
   <div class="header bgn-location-header">
     <i class="marker icon" /> {{location.street}}, {{location.city}}

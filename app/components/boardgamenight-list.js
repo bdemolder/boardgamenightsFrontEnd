@@ -12,23 +12,7 @@ export default Ember.Component.extend({
         elementId = '#' + name + '-' + id;
       }
 
-      $('.ui.' + name + '.modal' + elementId)
-      .modal({
-        dimmerSettings: { opacity: 0.5 },
-        autofocus: false,
-        onVisible: function () {
-          if (name === "location") {
-            var mapObject = gMapObject.maps.select("gmap-" + id);
-            if (mapObject && mapObject.map) {
-              var map = mapObject.map;
-              var center = map.getCenter();
-              google.maps.event.trigger(map, 'resize');
-              map.setCenter(center); 
-            }
-          }
-        }
-      })
-      .modal('show');
-    }
+      $('.ui.' + name + '.modal' + elementId).modal('show');
+    },
   }
 });
