@@ -8,7 +8,7 @@
         <div class="ui buttons">
           <button class="ui green button" onclick={{action 'openModal' 'addOneNight' false}}>Add 1</button>
           <div class="or"></div>
-          <button class="ui teal button">Multiple</button>
+          <button class="ui teal button" onclick={{action 'openModal' 'addMultipleNights' false}}>Multiple</button>
         </div>
         {{/if}}
       </th>
@@ -59,10 +59,11 @@
 
 {{!-- Initialization of the modals, outside table because of issues --}}
 <div style="height: 0px;">
-{{add-one-night}}  
+{{add-one-night}}
+{{add-multiple-nights}}
 {{#each boardgamenights as |boardgamenight|}}
   {{boardgame-detail boardGame=boardgamenight.boardGame}}
-  {{!--{{location-detail location=boardgamenight.location}}--}}
+  {{location-detail location=boardgamenight.location}}
   {{person-detail person=boardgamenight.organisator}}
 {{/each}}
 </div>

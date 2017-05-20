@@ -1,0 +1,78 @@
+{{#ui-modal name="addMultipleNights" class="addMultipleNights large" onApprove=(action 'approveModal') onDeny=(action 'denyModal') autofocus=false }}
+  <i class="close icon"></i>
+  <div class="header bgn-boardgame-header">
+    <i class="calendar icon" /> Add multiple board game nights
+  </div>
+  <div class="content">
+    <div class="description">
+      <form class="ui form">
+        <table class="ui large celled table tablet stackable">
+          <thead>
+            <tr>
+              <th class="bgn-add-multiple-date">Date</th>
+              <th class="bgn-add-multiple-time">Time</th>
+              <th>Board Game</th>
+              <th class="bgn-add-multiple-complexity center aligned">Complexity</th>
+              <th class="bgn-add-multiple-seats center aligned">Available Seats</th>
+              <th class="bgn-add-multiple-seats center aligned">Maximum Seats</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each newBoardGameNights as |boardgamenight|}}
+              <tr>
+                <td class="center aligned">
+                  {{pikaday-input format="DD/MM/YYYY" placeholder='Date' value=boardgamenight.date}}
+                </td>
+                <td class="center aligned">
+                  {{masked-input mask='11:11' required=true pattern='[0-9]{2}:[0-9]{2}' title='Time value with format HH:MM' placeholder='Time'}}
+                </td>
+                <td class="">
+                  <input name="boardgame[name]" placeholder="Name" type="text">
+                </td>
+                <td class="">
+                  <div>
+                    {{#ui-dropdown class="selection" selected="1" onChange=(action (mut complexity))}}
+                    <div class="default text">Complexity</div>
+                    <i class="dropdown icon"></i>
+                    <div class="menu">
+                      {{#each (range-helper 1 6) as |item|}}
+                      <div class="item" data-value={{item}}>
+                        {{complexity-star-rating value=item maxValue=5}}
+                      </div>
+                      {{/each}}
+                    </div>
+                    {{/ui-dropdown}}
+                  </div>
+                </td>
+                <td class="">
+                  {{masked-input mask='11' required=true pattern='[0-9]{2}' title='Available seats' placeholder='#'}}
+                </td>
+                <td class="">
+                  {{masked-input mask='11' required=true pattern='[0-9]{2}' title='Maximum seats' placeholder='#'}}
+                </td>
+                <td class="collapsing">
+                  <button class="ui red icon button" data-tooltip="Remove" onclick={{action 'removeNight' boardgamenight}}><i class="remove icon"></i></button>
+                </td>
+              </tr>
+            {{/each}}
+          </tbody>
+          <tfoot class="full-width">
+          <tr>
+            <th colspan="7">
+              <div class="ui right floated tiny primary labeled icon button" onclick={{action 'addNight'}}>
+                <i class="calendar icon"></i> Add night
+              </div>
+            </th>
+          </tr>
+        </tfoot>
+        </table>
+      </form>
+    </div>
+  </div>
+  <div class="actions">
+    <div class="ui red button deny">Cancel</div>
+    <div class="ui green right labeled icon button approve">Save<i class="checkmark icon"></i>
+    </div>
+  </div>
+{{/ui-modal}}

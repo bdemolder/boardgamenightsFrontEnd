@@ -66,3 +66,19 @@
 .bgn-website-top {
   border-top: 2px solid #DB2828 !important;
 }
+
+.bgn-add-multiple-date {
+  width: 13%;
+}
+
+.bgn-add-multiple-time {
+  width: 9%;
+}
+
+.bgn-add-multiple-seats {
+  width: 9%;
+}
+
+.bgn-add-multiple-complexity {
+  width: 22%;
+}
