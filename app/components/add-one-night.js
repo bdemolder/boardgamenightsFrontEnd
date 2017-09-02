@@ -5,11 +5,9 @@ export default Ember.Component.extend({
   },
   actions: {
     approveModal: function () {
-      console.log('Approved! - Compo');
       return true;
     },
-    denyModal: function (element, component) {
-      console.log('Denied! - Compo');
+    denyModal: function () {
       return true;
     }
   }

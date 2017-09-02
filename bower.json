@@ -1,8 +1,11 @@
 {
   "name": "bgn-website",
   "dependencies": {
-    "semantic-ui": "^2.2.10",
+    "semantic-ui": "^2.2.13",
     "gmaps-for-apps": "^0.5.15",
-    "ember-cli-snap-svg-shim": "^0.0.3"
+    "ember-cli-snap-svg-shim": "^0.0.3",
+    "moment": "^2.18.1",
+    "pikaday": "^1.6.1",
+    "semantic": "^2.2.13"
   }
 }
