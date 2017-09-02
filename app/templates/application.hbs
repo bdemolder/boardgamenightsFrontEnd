@@ -1,12 +1,13 @@
-<div class="ui massive inverted blue icon stackable menu bgn-remove-border-radius borderless">
+<div class="ui massive inverted grey icon stackable menu bgn-remove-border-radius borderless bgn-menu">
   {{#link-to "home" class="item center aligned"}}<i class="large home icon"/>{{/link-to}}
   {{#link-to "calendar" class="item"}}Calendar{{/link-to}}
   {{#link-to "user-nights" class="item"}}My Nights{{/link-to}}
   <a class="item">My Profile</a>
+  {{#link-to "login" class="item"}}Login{{/link-to}}
   <div class="right menu">
     <a class="ui item"><i class="large power icon"></i>&nbsp;Logout</a>
   </div>
 </div>
-<div class="bgn-user-outlet">
+<div class="bgn-content">
 {{outlet}}
 </div>

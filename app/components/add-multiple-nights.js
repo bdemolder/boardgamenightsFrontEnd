@@ -22,11 +22,9 @@ export default Ember.Component.extend({
       boardGameNights.removeObject(night);
     },
     approveModal: function () {
-      console.log('Approved! - Compo');
       return true;
     },
-    denyModal: function (element, component) {
-      console.log('Denied! - Compo');
+    denyModal: function () {
       return true;
     }
   }

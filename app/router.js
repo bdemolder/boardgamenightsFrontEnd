@@ -10,6 +10,7 @@ Router.map(function() {
   this.route('calendar');
   this.route('home', { path: '/' });
   this.route('user-nights');
+  this.route('login');
 });
 
 export default Router;
